@@ -1,0 +1,22 @@
+<h1>Sentences#edit</h1>
+<p>Find me in app/views/sentences/edit.html.erb</p>
+
+<div class="sentence new">
+
+	<%= form_for(setup_sentence(@sentence), :url => {:action => 'update', :id => @sentence.id}) do |f| %>
+
+
+    <%# f.hidden_field :sentence_id, :value => @sentence.id %>
+    <%# f.hidden_field :structure_id, :value => @sentence.structure_id %>
+
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+  <tr>
+  	<td></td>
+  	<td><%= submit_tag("Create Sentence") %></td>
+  </tr>
+
+</table>
+  <% end %>
+</div>

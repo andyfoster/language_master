@@ -1,0 +1,28 @@
+<h1>Sentences#new</h1>
+
+<%= link_to("<< Back to Structure", {:controller => 'structures', :action => 'show', :id => params[:id]}, :class => 'back-link') %>
+
+<div class="sentence new">
+  <h2>Create Sentence for <%= @structure.name %> (<%= @structure.english_meaning %>)</h2>
+
+	<%= form_for(setup_sentence(@sentence), :url => {:action => 'create'}) do |f| %>
+
+    <%= f.hidden_field :structure_id, :value => @structure.id %>
+
+
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+  <tr>
+  	<td></td>
+  	<td><%= submit_tag("Create Sentence") %></td>
+  </tr>
+
+</table>
+  <% end %>
+</div>
+
+<div>
+	  <h2>Formation</h2>
+	  	<p><%= simple_format(@structure.formation) %></p>
+</div>

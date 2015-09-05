@@ -1,0 +1,48 @@
+<table summary="Structure form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %>ことがある</td>
+  </tr>
+  <tr>
+    <th>Romaji</th>
+    <td><%= f.text_field(:romaji) %>koto ga aru</td>
+  </tr>
+  <tr>
+    <th>English Meaning</th>
+    <td><%= f.text_field(:english_meaning) %>
+      <select name="structure_translation_lang">
+        <option value="1">English</option>
+      </select>
+      Have --ed ~
+    </td>
+  </tr>
+  <tr>
+    <th>Example</th>
+    <td><%= f.text_field(:example) %>I have been to Tokyo</td>
+  </tr>
+  <tr>
+    <th>Formation</th>
+    <td><%= f.text_area(:formation, :class => 'btn') %>Vta + koto ga aru</td>
+  </tr>
+  <tr>
+    <th>Related Structures</th>
+    <td><%= f.text_field(:related) %></td>
+  </tr>
+  <tr>
+    <th>JLPT Level</th>
+    <td>
+      <%= f.select(:jlpt_level, options_for_select([
+        ['N1', 1], 
+        ['N2', 2], 
+        ['N3', 3], 
+        ['N4', 4], 
+        ['N5', 5], 
+        ['Not JLPT', 0],
+        ['Unsure', 9]], 2))
+      %>
+    </td>
+  </tr>
+  <tr>
+    <th>Notes</th>
+    <td><%= f.text_area(:notes) %></td>
+  </tr>

@@ -1,0 +1,19 @@
+<table summary="Sentence form fields">
+  <tr>
+    <th>Sentence</th>
+    <td><%= f.text_field(:sentence, placeholder: '東京に行ったことがある' ) %></td>
+  </tr>
+  <tr>
+    <th>Romaji</th>
+    <td><%= f.text_field(:phonetic_version, placeholder: 'toukyou ni itta koto ga aru') %></td>
+  </tr>
+  <tr>
+    <%= f.fields_for :sentence_translation do |ff| %>
+    <th>Sentence Translation</th>
+    <td><%= ff.text_field :translation, placeholder: 'I have been to Tokyo (before).' %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= ff.select(:language_id, options_for_select([['English', 1], ['日本語', 2], ['Polska', 3]], 1)) %> <input type="checkbox" id="explicit"><label for="explicit">Explicit</label></td>
+  </tr>
+  <% end %>

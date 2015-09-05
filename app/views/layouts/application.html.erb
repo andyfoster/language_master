@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LanguageMaster</title>
+  <%= csrf_meta_tags %>
+  <style type="text/css" media="screen">
+body {
+  background-color: #4B7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  width: 400px;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+.product h2 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+h1, h1 a {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #4B7399;
+  text-decoration: none;
+}
+
+  span.status {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0.25em auto;
+    padding: 0;
+    border: 1px solid #000000;
+  }
+
+
+/*	 html, body {
+	    height:100%;
+	    margin:0;
+	    padding:0;
+	}
+
+	header {
+	    height: 2em;
+	    background-color: #1454FF;
+	    position:relative;
+	    z-index:1;
+	}
+	#content {
+		width: 80%;
+		margin: 0 auto;
+	}
+  	html {
+  		margin: 0 auto;
+   		padding: 0;
+  	} 
+  	body {
+  		border: 0 none;
+  		height: 100%;
+  		padding: 0;
+  		background: lightgrey;
+  		font-family: Verdana;
+  		color: #1454FF;
+
+  	}
+  	#container {
+  		width: 100%;
+  		margin: 0 auto;
+  		background: white;
+  		border: 1px solid lightgrey;
+  	}
+  	#header_links {
+  		padding: 3px;
+  		width: 80%;
+  		margin: 0 auto;
+  	}
+  	#header_links a, #header_links a:visited {
+  		color: #FFFB06;
+  	}
+  	#title {
+  		display: inline;
+  	}
+  	#navigation {
+  		float:right;
+  		display: inline;
+  	}
+  	a, a:visited {
+  		color: #FF09B0;
+  	}
+  	h1, h2, h3, h4 {
+  		color: #06E86F;
+  	}*/
+
+    .new input[type=text] {
+      padding: 10px;
+      width: 100%;
+      font-size: 15px;
+    }
+    th+td {
+      width: 80%
+    }
+
+    .new td+td {
+      width: 80%;
+    }
+
+    input[type=submit] {
+      padding: 15px;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+     .new select {
+      padding: 10px;
+      font-size: 15px;
+      width: 150px;
+     }
+
+     .info-box {
+      background: #B5E4FD;
+      border: 1px dotted blue;
+      padding: 10px;
+      margin-top: 20px;
+     }
+     .article-box {
+      background: lightyellow;
+      border: 1px dotted orange;
+     }
+     .example {
+      color: grey;
+     }
+     .new textarea {
+      width: 600px;
+      height: 300px;
+      font-family: Verdana, Helvetica, Arial;
+     }
+
+     .
+
+
+     .btn.new {
+      color: black;
+      border: 1px solid green;
+      padding: 10px;
+      background: lightgreen;
+      border-radius: 10px;
+      text-decoration: none;
+
+     }
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+	<header>
+		<div id="header_links">
+			<h1 id="title">
+        <%= link_to('LanguageMaster', {:action => 'index', :controller => 'structures'}) %>
+			</h1>
+			<div id="navigation">
+        <%= link_to('All Structures', {:action => 'index', :controller => 'structures'}) %>
+        <a href="" title="Log In">Log In</a>
+        <%= link_to('About', {:action => 'about', :controller => 'pages'}) %>
+        <span>Viewing site in <a href="" title="">English</a></span>
+        <span>You have <b>4</b> points left. Please check/correct some sentences in English to get more points (while there are sentences with less than 20 points that this person hasn't seeen)</span>
+			</div>	
+		</div>
+
+	</header><!-- /header -->
+
+<hr>
+	<div id="content">
+		<%= yield %>		
+	</div>
+</div>
+
+
+</body>
+</html>

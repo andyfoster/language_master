@@ -1,0 +1,252 @@
+<h1>Index of Structures</h1>
+<div>
+	Welcome to language master, the most comprehensive catalog of every language in the world.
+	<br>
+	The best resources, and guides, written by you. Come in!
+</div>
+
+<div style="float:left; margin-left: 50%;">
+	<a href="" class="btn btn-danger">Click here to review your forgotton grammar.</a>
+	<br>
+	<a href="" class="btn btn-success">Click here to review your learnt grammar.</a>
+	<br>
+	<a href="" class="btn btn-info">Click here to test yourself on new grammar.</a>
+</div>
+
+<hr style="clear:both">
+
+<div id="start_here">
+	<a href="" title="Don't know where to start? Click here!">Don't know where to start? Click here for an intro!</a>
+</div>
+<br><br>
+<div>Filter: <input type="text" id="search"></div>
+
+<table style="width: 90%;"  id="structure-list">
+	<caption>Intermediate</caption>
+		<tr>
+			<th></th>
+			<th>Example</th>
+			<th>Japanese</th>
+			<th>Romaji</th>
+			<th>JLPT</th>
+		</tr>
+
+<% @structures.each do |structure| %>
+		<tr>
+			<td style="padding: 0.5em"><span class="status" style="background: <%= cycle('green', 'red', 'orange', 'red') %>; width: 10px"></span></td>
+			<td><%= link_to(structure.example, {:action => 'show', :id => structure.id}) %></td>
+			<td><%= link_to(structure.name, {:action => 'show', :id => structure.id}) %></td>
+			<td><%= structure.romaji %></td>
+			<td><%= structure.jlpt_level %></td>
+		</tr>
+
+<% end %>
+
+</table>
+
+<div class="structure new">
+  <h2>Create Structure</h2>
+
+  <%= form_for(:structure, :url => {:action => 'create'}) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+  <tr>
+  	<td></td>
+  	<td><%= submit_tag("Create Structure") %></td>
+  </tr>
+
+</table>
+
+
+  <% end %>
+</div>
+
+<span>Or use this link:</span>
+
+
+<%= link_to("New Structure", {:action => 'new'}, :class => 'back-link') %>
+
+
+<div>
+	Click here for a primer on Japanese grammar and verb conjugations! <a href="">here</a>
+</div>
+
+<div>
+	<h3>Verb Conjugations</h3>
+
+<p>3 types of verbs. U Verbs, Ru-Verbs, Irregular Verbs (only 2!)
+<br>
+All verbs end in a U sound, no exceptions: taberu (eat), nomu (drink), iku (go), suru (do)
+<br>
+</p>
+<p>
+<h3>Exceptions</h3>
+<br>
+As in many languages, the extremely common verbs morph over time and become irregular
+<br>
+In Japanese, the verbs for doing and coming are irregular. You just have to learn the conjugations for them. The nice thing is that they are so common you'll get lots of practice (link to article on each).
+<br>
+</p>
+<h3>Ru Verh3s</h3>
+<p>
+<br>
+These are verbs that end in eru and iru. It's a bit of a strange name - words like wakaru (understand) are NOT RU verbs.
+<br>
+Examples: eat (taberu), break (kowareru), remember (oboeru), be able to do (dekiru)
+<br>
+These are super easy to conjugate. Sometimes they are known as one-step verbs because there is only one step to conjugate them. Most of the time, you just drop the final 'ru'
+<br>
+There are a few U verbs that LOOK like RU verbs (ie. they end in iru or eru) but these aren't EXCEPTIONS as much as sneaky U verbs. to go home (kaeru) etc
+</p>
+<h3>U Verbs</h3>
+<p>
+These are known as 5-step verbs because each of the 5 rows of the hiragana chart are used. But only in the column it is. (This is why you need to understand how hiragana is laid out (<a href="" title="">here</a>, even if you can't read it yet).  
+<br>
+For example: Take the verb, to go (iku)
+<pre>
+	A ika -nai - don't go
+	I iki-masu - mase/formal stem
+	U iku (plain form of the verb. Start here)
+	E ike-ru - can/able to go
+	O iko-u - let's go!
+</pre>
+</p>
+
+<div>
+	<a href="" title="Play the verb conjugation game!">Play the verb conjugation game!</a>
+</div>
+
+	<ul>
+		<li>V(plain)
+			<br>
+			Plain/dictionary form of verb e.g 食べる、飲む、行く
+		</li>
+		<li>V(plain past)
+			<br>
+			Plain/dictionary past form of verb e.g 食べた、飲んだ、行った
+		</li>
+		<li>V(masu stem)
+			<br>
+			The part of the verb just before the 'masu' (食べ)ます、(飲み)ます
+		</li>
+		<li>V(plain negative) (pl neg)
+			<br>
+			The part of the verb just before the 'masu' (食べ)ます、(飲み)ます
+		</li>
+		<li>V(te) - need an extra article on this!!
+			<br>
+			Hard to explain in English, joining to others、casual command form 食べて, 飲んで
+			<br>
+			Veyr useful but the u-verbs change depending on their endings (link)
+		</li>
+		<li>V(vol)
+			<br>
+			The volitional of the verb. Sometimes 'Let's ...' 食べよう
+		</li>
+		<li>V(imp)
+			<br>
+			Imperative form of the verb. Eat! 食べろ！　のも？
+		</li>
+		<li>V(passive)
+			<br>
+			Passive form of the verb. It was eaten 食べられる
+		</li>
+		<li>V(caus)
+			<br>
+			Causitive form of the verb. I make you eat 食べさせる
+		</li>
+		<li>V(caus pass)
+			<br>
+			Causitive-passive form of the verb. I was made to eat 食べさせられる
+		</li>
+		<li>V(hyp)
+			<br>
+			Hypothetical form of the verb. If (I/you) eat... 食べれば
+		</li>
+		<li>V(pot)
+			<br>
+			Potential form of the verb. I can eat 食べられる
+			<br>
+			Often shortened in informal speech to 食べれる
+		</li>
+		<li>V(mashou)
+			<br>
+			Mashou form of the verb. Let's eat! 食べろ！　のも？
+		</li>
+
+	</ul>
+</div>
+
+<div>
+	You can have practice translating everything into every other language
+	<br>
+	It's super meta!
+	<br>
+	Every comment will be able to be translated into any other language and marked.
+</div>
+
+
+
+<table style="width: 90%">
+	<caption>Intermediate</caption>
+		<tr>
+			<th>Example</th>
+			<th>Japanese</th>
+			<th>Practice Sentences</th>
+			<th>Last Reviewed</th>
+			<th>Test Stats</th>
+			<th>Grammatical Name</th>
+			<th>Code</th>
+			<th>JLPT</th>
+		</tr>
+
+		<tr>
+			<td><a href="grammar.html" class="grammar_title"><b>It's unlikely that</b> he is a college student</a></td>
+			<td>はずがない</td>
+			<td>90% (9/10)</td>
+			<td>32 days ago</td>
+			<td><span class="correct" style="color: green">80% 8/10</span></td>
+			<td></td>
+			<td>JETINT B06 W01 D04</td>
+			<td>N3</td>
+		</tr>
+		<tr>
+			<td><b>It looks like</b> your wallet is about to fall out of your pocket</td>
+			<td>Vそうだ</td>
+			<td>50% (5/10)</td>
+			<td>3 days ago</td>
+			<td><span class="incorrect"><span style="color: red">47% (30/63)</span></span></td>
+			<td></td>
+			<td>JETINT B06 W01 D05</td>
+			<td>N4</td>
+		</tr>
+		<tr>
+			<td>The students are <b>(in the process of) leaving</b> the classroom</td>
+			<td>V(よ)うとしている</td>
+			<td>60% (6/10)</td>
+			<td>3 days ago</td>
+			<td><span class="imperfect">76% (13/17)</span></td>
+			<td></td>
+			<td>JETINT B06 W02 D01</td>
+			<td>N4</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<script type='text/javascript'>//<![CDATA[ 
+
+	$(window).load(function(){
+	var $rows = $('#structure-list tr');
+	$('#search').keyup(function() {
+	    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+	    
+	    $rows.show().filter(function() {
+	        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+	        return !~text.indexOf(val);
+	    }).hide();
+	});
+	});//]]>  
+
+</script>

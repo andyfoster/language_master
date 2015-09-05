@@ -1,0 +1,89 @@
+<% @page_title = "Show Structure" %>
+
+<style type="text/css" media="screen">
+	ab {
+		color: red;
+	}
+</style>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="structure show">
+  <h2>Showing Structure for <i><%= @structure.romaji %></i><here></h2>
+
+	<table summary="Section detail view" class="info-box">
+		<tr>
+		  <th>Name</th>
+		  <td><%= @structure.name %></td>
+		</tr>
+		<tr>
+		  <th>Romaji</th>
+		  <td><%= @structure.romaji %></td>
+		</tr>
+		<tr>
+		  <th>English Meaning</th>
+		  <td><%= @structure.english_meaning %></td>
+		</tr>
+		<tr>
+		  <th>Formation</th>
+		  <td><%= simple_format(@structure.formation) %></td>
+		</tr>
+		<tr>
+		  <th>Example</th>
+		  <td><%= @structure.example %></td>
+		</tr>  
+		<tr>
+		  <th>JLPT Level</th>
+		  <td><%= @structure.jlpt_level %></td>
+		</tr>
+		<tr>
+		  <th>Related Structures</th>
+	  <td><a><%= @structure.related %></a></td>
+		</tr>
+	</table>
+<ul>
+
+	<% @structure.sentences.each do |sentence| %>
+		<li><span style="font-size: 2em"><%= sentence.sentence %></span>
+		<br><a title="<%= sentence.phonetic_version %>">Reading</a>
+		<br><%= 
+			if (defined?(sentence.sentence_translation.translation))
+				sentence.sentence_translation.translation
+			else
+				"No translation exists!"
+			end
+			 %> <br>Score: (<%= sentence.score %>)</li>
+			 <li><%= link_to "Edit", {controller: "sentences", action: "edit", id: sentence.id}, class: "edit" %>
+</li>
+		<br>
+	<% end %>
+</ul>
+
+<%= link_to "Create New Sentence", {controller: "sentences", action: "new", id: @structure.id}, class: "new btn" %>
+
+
+<div class="info-box article-box">
+	<h3>Article</h3>
+	<p>All about this structure in {English}.
+		<p><%= simple_format(@structure.notes) %></p>
+		<hr>
+		<p>
+		<i>Please comment below and the best stuff will be pulled into this article to make it great!
+		<br>
+		Do you have any memorable stories about this structure?</i></p>
+</div>
+
+<div class="info-box">
+	<h3>Good Resources</h3>
+
+	<ul>
+		<li>Maggie Sensei <button>+1</button></li>
+		<li>JGram for this struture <button>+1</button></li>
+		<li>YouTube - joeymori <button>+1</button></li>
+		<li>Maggie  <button>+1</button></li>
+		<li><a href="" title="">Add new link!</a></li>
+	</ul>
+	
+</div>
+
+

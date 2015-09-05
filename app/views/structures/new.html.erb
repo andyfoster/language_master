@@ -1,0 +1,19 @@
+<h1>Structures#new</h1>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="structure new">
+  <h2>Create Structure</h2>
+
+  <%= form_for(:structure, :url => {:action => 'create'}) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+<tr>
+	<td></td>
+	<td><%= submit_tag("Create Structure") %></td>
+</tr>
+</table>
+
+  <% end %>
+</div>

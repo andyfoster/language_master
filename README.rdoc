@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Language Master is a Rails application for collecting grammar structures and allowing users to enter practice sentences using that grammar. These sentences can then be checked and corrected by native speakers and added to the library of example sentences for their respective grammar point.
 
-Things you may want to cover:
+This is a very early version with only basic functionality.
 
-* Ruby version
+= INSTALLATION
 
-* System dependencies
+Just the normal Rails app install procedure.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Remember to run `bundle install` and `rake db:migrate` before you run it.
